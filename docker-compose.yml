@@ -1,0 +1,54 @@
+name: pern-graphql-app
+
+services:
+  node-api:
+    build:
+      context: ./backend #. means this docker-compose is inside the node api home directory, 
+      dockerfile: Dockerfile
+    # restart:
+    #   - unless-stopped
+    ports:
+      - "7000:7000"
+    depends_on:
+      - postgres
+    env_file:
+      - ./backend/.env #  .env file
+    networks:
+      - pern-graphql-app
+    volumes:
+      - ./backend:/app
+    command: npm run server
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    # restart:
+    #   - "unless-stopped"
+    ports:
+      - "5173:5173"
+    networks:
+      - pern-graphql-app
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: npm run dev -- --host
+    depends_on:
+      - node-api
+
+  postgres:
+    image: postgres:latest
+    networks:
+      - pern-graphql-app
+    env_file:
+      - ./backend/.env #  .env 
+    volumes:
+      - postgres-data:/data/db
+
+volumes:
+  postgres-data:
+
+
+networks:
+  pern-graphql-app:
+    driver: bridge
