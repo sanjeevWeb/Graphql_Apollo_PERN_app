@@ -7,11 +7,10 @@ and Prisma ORM, React is used in frontend, finally dockerized the app locally
 
 *folder structure*
 
-![folder structure](image.jpg)
 ![folderStr](https://github.com/user-attachments/assets/b2fce5fa-aac5-4139-869a-9fc6574990bd)
 
-Apollo server response in browser(sandbox)
-Graphql-![graphql_response](https://github.com/user-attachments/assets/c9995603-351c-4176-a57e-0336fb6f938b)
+GraphQl-Apollo server response in browser(sandbox)
+![graphql_response](https://github.com/user-attachments/assets/c9995603-351c-4176-a57e-0336fb6f938b)
 
 Initially got some issues with prisma engine when dockerizing it, but solved
 
@@ -21,8 +20,8 @@ pg)
 
 *frontend in react*
 
-![frontend](image![frontend_graphql](https://github.com/user-attachments/assets/1a920971-16ab-4728-b208-b4a7ac08bd5e)
-.jpg)
+![frontend_graphql](https://github.com/user-attachments/assets/1a920971-16ab-4728-b208-b4a7ac08bd5e)
+
 
 >future scope
 
