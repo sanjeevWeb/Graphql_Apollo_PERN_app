@@ -15,14 +15,16 @@ GraphQl-Apollo server response in browser(sandbox)
 Initially got some issues with prisma engine when dockerizing it, but solved. Actually the issue was that prisma was
 not supported for windows on docker as it was meant for Linux, so to overcome this, first copy prisma file explicitly in 
 Dockerfile abd secondly update prisma.schema file as - 
-`code`javascript
+```
 generator client {
   provider      = "prisma-client-js"
   binaryTargets = ["native", "darwin", "darwin-arm64","debian-openssl-3.0.x"]
 }
+```
 and finally run -
-`code`
+```
 npx prisma generate
+```
 
 ![docker-compose](image.j![docer_compose1](https://github.com/user-attachments/assets/e182afb7-bafe-4dec-90c2-9ee2287c7a52)
 pg)
