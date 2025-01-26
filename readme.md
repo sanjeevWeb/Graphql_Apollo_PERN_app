@@ -12,7 +12,17 @@ and Prisma ORM, React is used in frontend, finally dockerized the app locally
 GraphQl-Apollo server response in browser(sandbox)
 ![graphql_response](https://github.com/user-attachments/assets/c9995603-351c-4176-a57e-0336fb6f938b)
 
-Initially got some issues with prisma engine when dockerizing it, but solved
+Initially got some issues with prisma engine when dockerizing it, but solved. Actually the issue was that prisma was
+not supported for windows on docker as it was meant for Linux, so to overcome this, first copy prisma file explicitly in 
+Dockerfile abd secondly update prisma.schema file as - 
+`code`javascript
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "darwin", "darwin-arm64","debian-openssl-3.0.x"]
+}
+and finally run -
+`code`
+npx prisma generate
 
 ![docker-compose](image.j![docer_compose1](https://github.com/user-attachments/assets/e182afb7-bafe-4dec-90c2-9ee2287c7a52)
 pg)
